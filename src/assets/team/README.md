@@ -1,6 +1,6 @@
 # Team photos
 
-Drop photos here, named after the person (matching the name in src/data/club.js):
+Drop photos here, named after the person (matching the name in src/data/team.json):
 
     harshal.jpg
     tejaswini.png

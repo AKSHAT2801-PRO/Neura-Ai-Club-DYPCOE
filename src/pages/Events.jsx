@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { events } from '../data/club.js'
+import events from '../data/events.json'
 
 const sections = [
   { id: 'upcoming', title: 'Upcoming Events', key: 'upcoming', empty: 'No upcoming events announced yet. Stay tuned!' },

@@ -1,4 +1,4 @@
-import { Suspense, useMemo, useRef } from 'react'
+import { Suspense, useMemo, useRef, useEffect } from 'react'
 import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { asset } from '../utils.js'
@@ -85,6 +85,7 @@ function LogoReveal({ reduced }) {
   const group = useRef()
   const pointsMat = useRef()
   const planeMat = useRef()
+  const settledRef = useRef(false)
   const { viewport } = useThree()
   const tex = useLoader(THREE.TextureLoader, asset('logo-mark.png'))
   const sprite = useMemo(makeSprite, [])
@@ -95,32 +96,64 @@ function LogoReveal({ reduced }) {
   }, [tex])
   const aspect = tex.image.height / tex.image.width
 
+  // Cleanup WebGL textures and buffers on unmount
+  useEffect(() => {
+    return () => {
+      sprite.dispose()
+      data.geometry.dispose()
+    }
+  }, [sprite, data])
+
   useFrame((state) => {
     const t = state.clock.elapsedTime + (reduced ? 10 : 0)
-    const arr = data.geometry.attributes.position.array
-    for (let i = 0; i < COUNT; i++) {
-      const i3 = i * 3
-      const p = Math.min(1, Math.max(0, (t - 0.2 - data.delays[i]) / 2.6))
-      const e = 1 - Math.pow(1 - p, 4)
-      const k = 1 - e
-      const curve = Math.sin(p * Math.PI) * 0.9 * data.swirl[i]
-      arr[i3] = data.targets[i3] + (data.starts[i3] - data.targets[i3]) * k + curve + Math.sin(t * 1.6 + i) * 0.01
-      arr[i3 + 1] = data.targets[i3 + 1] + (data.starts[i3 + 1] - data.targets[i3 + 1]) * k + Math.cos(t * 1.3 + i) * 0.01
-      arr[i3 + 2] = data.targets[i3 + 2] + (data.starts[i3 + 2] - data.targets[i3 + 2]) * k
+
+    // CPU Swarm Animation: Only executes while particles are assembling
+    if (!settledRef.current) {
+      const arr = data.geometry.attributes.position.array
+      let allSettled = true
+
+      for (let i = 0; i < COUNT; i++) {
+        const i3 = i * 3
+        const p = Math.min(1, Math.max(0, (t - 0.2 - data.delays[i]) / 2.6))
+        if (p < 1) allSettled = false
+        const e = 1 - Math.pow(1 - p, 4)
+        const k = 1 - e
+        const curve = Math.sin(p * Math.PI) * 0.9 * data.swirl[i]
+        arr[i3] = data.targets[i3] + (data.starts[i3] - data.targets[i3]) * k + curve + Math.sin(t * 1.6 + i) * 0.01
+        arr[i3 + 1] = data.targets[i3 + 1] + (data.starts[i3 + 1] - data.targets[i3 + 1]) * k + Math.cos(t * 1.3 + i) * 0.01
+        arr[i3 + 2] = data.targets[i3 + 2] + (data.starts[i3 + 2] - data.targets[i3 + 2]) * k
+      }
+      data.geometry.attributes.position.needsUpdate = true
+
+      // Logo artwork fade-in
+      const r = Math.min(1, Math.max(0, (t - REVEAL_AT) / 1.2))
+      const er = 1 - Math.pow(1 - r, 3)
+      if (planeMat.current) planeMat.current.opacity = er
+      if (pointsMat.current) pointsMat.current.opacity = 1 - 0.6 * er
+
+      // Once formation settles, lock buffer to target positions and shut off CPU loops
+      if (allSettled && t > REVEAL_AT + 1.2) {
+        for (let i = 0; i < COUNT; i++) {
+          const i3 = i * 3
+          arr[i3] = data.targets[i3]
+          arr[i3 + 1] = data.targets[i3 + 1]
+          arr[i3 + 2] = data.targets[i3 + 2]
+        }
+        data.geometry.attributes.position.needsUpdate = true
+        if (planeMat.current) planeMat.current.opacity = 1
+        if (pointsMat.current) pointsMat.current.opacity = 0.4
+        settledRef.current = true
+      }
     }
-    data.geometry.attributes.position.needsUpdate = true
 
-    // Once the swarm has formed, the real logo artwork fades in on top.
-    const r = Math.min(1, Math.max(0, (t - REVEAL_AT) / 1.2))
-    const er = 1 - Math.pow(1 - r, 3)
-    planeMat.current.opacity = er
-    pointsMat.current.opacity = 1 - 0.6 * er
-
+    // Group floating & pointer tilt (GPU-accelerated, zero CPU vertex calculations)
     const g = group.current
-    g.scale.setScalar(Math.min(0.55, (viewport.width * 0.8) / WORLD_W))
-    g.position.y = viewport.height * 0.16
-    g.rotation.y = Math.sin(t * 0.5) * 0.25 + state.pointer.x * 0.35
-    g.rotation.x = -state.pointer.y * 0.2
+    if (g) {
+      g.scale.setScalar(Math.min(0.55, (viewport.width * 0.8) / WORLD_W))
+      g.position.y = viewport.height * 0.16 + (settledRef.current ? Math.sin(t * 0.8) * 0.04 : 0)
+      g.rotation.y = Math.sin(t * 0.5) * 0.25 + state.pointer.x * 0.35
+      g.rotation.x = -state.pointer.y * 0.2
+    }
   })
 
   return (
@@ -166,10 +199,22 @@ function Backdrop() {
   }, [])
   const sprite = useMemo(makeSprite, [])
 
+  // Cleanup backdrop geometry and texture on unmount
+  useEffect(() => {
+    return () => {
+      sprite.dispose()
+      starGeo.dispose()
+    }
+  }, [sprite, starGeo])
+
   useFrame((state, dt) => {
-    wire.current.rotation.y += dt * 0.08
-    wire.current.rotation.x += dt * 0.04
-    stars.current.rotation.y += dt * 0.02
+    if (wire.current) {
+      wire.current.rotation.y += dt * 0.08
+      wire.current.rotation.x += dt * 0.04
+    }
+    if (stars.current) {
+      stars.current.rotation.y += dt * 0.02
+    }
   })
 
   return (
@@ -193,9 +238,14 @@ function Backdrop() {
   )
 }
 
-export default function Hero3D({ reduced = false }) {
+export default function Hero3D({ reduced = false, inView = true }) {
   return (
-    <Canvas camera={{ position: [0, 0, 9], fov: 50 }} dpr={[1, 2]} gl={{ antialias: true, alpha: true }}>
+    <Canvas
+      camera={{ position: [0, 0, 9], fov: 50 }}
+      dpr={[1, typeof window !== 'undefined' && window.devicePixelRatio > 1.5 ? 1.5 : 1]}
+      frameloop={inView ? 'always' : 'never'}
+      gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
+    >
       <Backdrop />
       <Suspense fallback={null}>
         <LogoReveal reduced={reduced} />

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "aiml",
+    "title": "AI & Machine Learning",
+    "text": "Models, algorithms and the maths behind intelligent systems.",
+    "icon": "◈"
+  },
+  {
+    "id": "genai",
+    "title": "Generative AI",
+    "text": "LLMs, diffusion and prompt craft for building with generative tools.",
+    "icon": "✦"
+  },
+  {
+    "id": "datascience",
+    "title": "Data Science",
+    "text": "From raw data to insight: analysis, visualisation and storytelling.",
+    "icon": "◉"
+  },
+  {
+    "id": "webtech",
+    "title": "Web & Technical",
+    "text": "Shipping real products and bringing AI ideas to the browser.",
+    "icon": "⬡"
+  }
+]

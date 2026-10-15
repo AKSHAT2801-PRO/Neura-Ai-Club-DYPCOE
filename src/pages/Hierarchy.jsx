@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import PersonCard from '../components/PersonCard.jsx'
-import { faculty, president, vicePresident, leads, coordinators } from '../data/club.js'
+import team from '../data/team.json'
+
+const faculty = team.faculty || []
+const leadership = team.leadership || []
+const domains = team.domains || []
 
 const rise = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -27,11 +31,9 @@ function Tier({ index, label, title, children }) {
   )
 }
 
-const leadsByDomain = new Map(leads.map((lead) => [lead.domain, lead]))
-
 export default function Hierarchy() {
   const [collapsedDomains, setCollapsedDomains] = useState(() =>
-    Object.fromEntries(coordinators.map(({ domain }) => [domain, true])),
+    Object.fromEntries(domains.map(({ domain }) => [domain, true])),
   )
 
   return (
@@ -48,29 +50,42 @@ export default function Hierarchy() {
       </section>
 
       <div className="container tiers">
+        {/* Tier 1: Faculty */}
         <Tier index="1" label="Guidance" title="Faculty Coordinators">
           <div className="grid grid--people">
             {faculty.map((f, i) => (
-              <PersonCard key={f.name} name={f.name} role={f.role} delay={i * 0.06} />
+              <PersonCard key={f.name || i} member={f} delay={i * 0.06} />
             ))}
           </div>
         </Tier>
 
+        {/* Tier 2: Leadership */}
         <Tier index="2" label="Student leadership" title="President & Vice President">
           <div className="grid grid--pair">
-            <PersonCard name={president.members[0]} role={president.role} size="lg" accent />
-            <PersonCard name={vicePresident.members[0]} role={vicePresident.role} size="lg" accent delay={0.08} />
+            {leadership.map((leader, i) => (
+              <PersonCard
+                key={leader.name || i}
+                member={leader}
+                size="lg"
+                accent
+                delay={i * 0.08}
+              />
+            ))}
           </div>
         </Tier>
 
+        {/* Tier 3: Domain Teams */}
         <Tier index="3" label="Domain teams" title="Leads & Coordinators">
           <div className="domains">
-            {coordinators.map((c, index) => {
-              const isExpanded = !collapsedDomains[c.domain]
+            {domains.map((d, index) => {
+              const isExpanded = !collapsedDomains[d.domain]
               const contentId = `domain-content-${index}`
+              const leads = d.leads || []
+              const coordinators = d.coordinators || []
+              const totalCount = leads.length + coordinators.length
 
               return (
-                <div key={c.domain} className="domain">
+                <div key={d.domain} className="domain">
                   <motion.h3 className="domain__heading" {...rise()}>
                     <button
                       className="domain__toggle"
@@ -80,13 +95,13 @@ export default function Hierarchy() {
                       onClick={() =>
                         setCollapsedDomains((current) => ({
                           ...current,
-                          [c.domain]: !current[c.domain],
+                          [d.domain]: !current[d.domain],
                         }))
                       }
                     >
                       <span className="domain__title">
-                        {c.domain}
-                        <span>{c.members.length + (leadsByDomain.get(c.domain)?.members.length ?? 0)}</span>
+                        {d.domain}
+                        <span>{totalCount}</span>
                       </span>
                       <span
                         className={`domain__chevron ${isExpanded ? 'domain__chevron--expanded' : ''}`}
@@ -96,16 +111,16 @@ export default function Hierarchy() {
                       </span>
                     </button>
                   </motion.h3>
+
                   <div id={contentId} hidden={!isExpanded}>
-                    {leadsByDomain.has(c.domain) && (
+                    {leads.length > 0 && (
                       <div className="domain__group">
                         <h4 className="domain__label">Leads</h4>
                         <div className="grid grid--people">
-                          {leadsByDomain.get(c.domain).members.map((m, i) => (
+                          {leads.map((m, i) => (
                             <PersonCard
-                              key={m}
-                              name={m}
-                              role={i === 1 ? 'Co-Lead' : leadsByDomain.get(c.domain).role}
+                              key={m.name || i}
+                              member={m}
                               accent
                               delay={(i % 5) * 0.05}
                             />
@@ -113,14 +128,22 @@ export default function Hierarchy() {
                         </div>
                       </div>
                     )}
-                    <div className="domain__group">
-                      <h4 className="domain__label">Coordinators</h4>
-                      <div className="grid grid--people-sm">
-                        {c.members.map((m, i) => (
-                          <PersonCard key={m} name={m} role="Coordinator" size="sm" delay={(i % 5) * 0.05} />
-                        ))}
+
+                    {coordinators.length > 0 && (
+                      <div className="domain__group">
+                        <h4 className="domain__label">Coordinators</h4>
+                        <div className="grid grid--people-sm">
+                          {coordinators.map((m, i) => (
+                            <PersonCard
+                              key={m.name || i}
+                              member={m}
+                              size="sm"
+                              delay={(i % 5) * 0.05}
+                            />
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </div>
               )

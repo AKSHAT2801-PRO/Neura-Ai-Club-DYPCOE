@@ -1,0 +1,565 @@
+{
+  "faculty": [
+    {
+      "name": "Faculty Coordinator 1",
+      "role": "Faculty Coordinator",
+      "dept": "Department of Information Technology",
+      "links": [
+        {
+          "role": "PORTFOLIO",
+          "url": "https://www.dypcoe.edu.in"
+        }
+      ]
+    },
+    {
+      "name": "Faculty Coordinator 2",
+      "role": "Faculty Coordinator",
+      "dept": "Department of Information Technology",
+      "links": [
+        {
+          "role": "LINKEDIN",
+          "url": "https://linkedin.com/in/"
+        }
+      ]
+    },
+    {
+      "name": "Faculty Coordinator 3",
+      "role": "Faculty Coordinator",
+      "dept": "Department of Information Technology",
+      "links": []
+    }
+  ],
+  "leadership": [
+    {
+      "name": "Harshal",
+      "role": "President",
+      "domain": "Core Leadership",
+      "links": [
+        {
+          "role": "LINKEDIN",
+          "url": "https://linkedin.com/in/"
+        },
+        {
+          "role": "PORTFOLIO",
+          "url": "https://github.com"
+        }
+      ]
+    },
+    {
+      "name": "Tejaswini",
+      "role": "Vice President",
+      "domain": "Core Leadership",
+      "links": [
+        {
+          "role": "LINKTREE",
+          "url": "https://linktr.ee/"
+        }
+      ]
+    }
+  ],
+  "domains": [
+    {
+      "domain": "AI & Machine Learning (AIML)",
+      "leads": [
+        {
+          "name": "Tanishq",
+          "role": "AI/ML Lead",
+          "domain": "AI & Machine Learning (AIML)",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        },
+        {
+          "name": "Siddheshwar",
+          "role": "AI/ML Co-Lead",
+          "domain": "AI & Machine Learning (AIML)",
+          "links": [
+            {
+              "role": "GITHUB",
+              "url": "https://github.com"
+            }
+          ]
+        }
+      ],
+      "coordinators": [
+        {
+          "name": "Sarvesh Channewar",
+          "role": "Coordinator",
+          "domain": "AI & Machine Learning (AIML)",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        },
+        {
+          "name": "Shreyash",
+          "role": "Coordinator",
+          "domain": "AI & Machine Learning (AIML)",
+          "links": []
+        }
+      ]
+    },
+    {
+      "domain": "Generative AI (GenAI)",
+      "leads": [
+        {
+          "name": "Prathamesh",
+          "role": "Gen-AI Lead",
+          "domain": "Generative AI (GenAI)",
+          "links": [
+            {
+              "role": "PORTFOLIO",
+              "url": "https://github.com"
+            },
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        },
+        {
+          "name": "Akash",
+          "role": "Gen-AI Co-Lead",
+          "domain": "Generative AI (GenAI)",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        }
+      ],
+      "coordinators": [
+        {
+          "name": "Krishna Tripathi",
+          "role": "Coordinator",
+          "domain": "Generative AI (GenAI)",
+          "links": [
+            {
+              "role": "PORTFOLIO",
+              "url": "https://github.com"
+            }
+          ]
+        },
+        {
+          "name": "Anushka Nayarkar",
+          "role": "Coordinator",
+          "domain": "Generative AI (GenAI)",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        },
+        {
+          "name": "Mohit",
+          "role": "Coordinator",
+          "domain": "Generative AI (GenAI)",
+          "links": [
+            {
+              "role": "LINKTREE",
+              "url": "https://linktr.ee/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Data Science",
+      "leads": [
+        {
+          "name": "Sandesh",
+          "role": "Data Science Lead",
+          "domain": "Data Science",
+          "links": [
+            {
+              "role": "PORTFOLIO",
+              "url": "https://github.com"
+            }
+          ]
+        }
+      ],
+      "coordinators": [
+        {
+          "name": "Vedika Chaudhari",
+          "role": "Coordinator",
+          "domain": "Data Science",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        },
+        {
+          "name": "Sanjeev",
+          "role": "Coordinator",
+          "domain": "Data Science",
+          "links": []
+        }
+      ]
+    },
+    {
+      "domain": "Web Development",
+      "leads": [
+        {
+          "name": "Akshat",
+          "role": "Technical Lead",
+          "domain": "Web Development",
+          "links": [
+            {
+              "role": "PORTFOLIO",
+              "url": "https://github.com"
+            },
+            {
+              "role": "GITHUB",
+              "url": "https://github.com"
+            }
+          ]
+        },
+        {
+          "name": "Sojval",
+          "role": "Technical Co-Lead",
+          "domain": "Web Development",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        }
+      ],
+      "coordinators": [
+        {
+          "name": "Sanika Takare",
+          "role": "Coordinator",
+          "domain": "Web Development",
+          "links": [
+            {
+              "role": "PORTFOLIO",
+              "url": "https://github.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Design",
+      "leads": [
+        {
+          "name": "Pooja",
+          "role": "Design Lead",
+          "domain": "Design",
+          "links": [
+            {
+              "role": "LINKTREE",
+              "url": "https://linktr.ee/"
+            }
+          ]
+        },
+        {
+          "name": "Mayur",
+          "role": "Design Co-Lead",
+          "domain": "Design",
+          "links": [
+            {
+              "role": "PORTFOLIO",
+              "url": "https://github.com"
+            }
+          ]
+        }
+      ],
+      "coordinators": [
+        {
+          "name": "Riddhi",
+          "role": "Coordinator",
+          "domain": "Design",
+          "links": [
+            {
+              "role": "PORTFOLIO",
+              "url": "https://github.com"
+            }
+          ]
+        },
+        {
+          "name": "Pranali",
+          "role": "Coordinator",
+          "domain": "Design",
+          "links": [
+            {
+              "role": "LINKTREE",
+              "url": "https://linktr.ee/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Media",
+      "leads": [
+        {
+          "name": "Parth",
+          "role": "Media Lead",
+          "domain": "Media",
+          "links": [
+            {
+              "role": "LINKTREE",
+              "url": "https://linktr.ee/"
+            }
+          ]
+        },
+        {
+          "name": "Sarthak",
+          "role": "Media Co-Lead",
+          "domain": "Media",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        }
+      ],
+      "coordinators": [
+        {
+          "name": "Tirthkak Patil",
+          "role": "Coordinator",
+          "domain": "Media",
+          "links": [
+            {
+              "role": "LINKTREE",
+              "url": "https://linktr.ee/"
+            }
+          ]
+        },
+        {
+          "name": "Ganesh",
+          "role": "Coordinator",
+          "domain": "Media",
+          "links": [
+            {
+              "role": "PORTFOLIO",
+              "url": "https://github.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "Events & Activities",
+      "leads": [
+        {
+          "name": "Sanika",
+          "role": "Event & Activities Lead",
+          "domain": "Events & Activities",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        },
+        {
+          "name": "Shubham",
+          "role": "Event & Activities Co-Lead",
+          "domain": "Events & Activities",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        }
+      ],
+      "coordinators": [
+        {
+          "name": "Ruchika More",
+          "role": "Coordinator",
+          "domain": "Events & Activities",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        },
+        {
+          "name": "Swarupa Shingare",
+          "role": "Coordinator",
+          "domain": "Events & Activities",
+          "links": []
+        },
+        {
+          "name": "Ayush Pardhi",
+          "role": "Coordinator",
+          "domain": "Events & Activities",
+          "links": []
+        },
+        {
+          "name": "Hemanshu",
+          "role": "Coordinator",
+          "domain": "Events & Activities",
+          "links": []
+        },
+        {
+          "name": "Manmath",
+          "role": "Coordinator",
+          "domain": "Events & Activities",
+          "links": []
+        }
+      ]
+    },
+    {
+      "domain": "Public Relations (PR)",
+      "leads": [
+        {
+          "name": "Prerak",
+          "role": "PR Lead",
+          "domain": "Public Relations (PR)",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        },
+        {
+          "name": "Shrishaily",
+          "role": "PR Co-Lead",
+          "domain": "Public Relations (PR)",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        }
+      ],
+      "coordinators": [
+        {
+          "name": "Ritu Ahlawat",
+          "role": "Coordinator",
+          "domain": "Public Relations (PR)",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        },
+        {
+          "name": "Mohan",
+          "role": "Coordinator",
+          "domain": "Public Relations (PR)",
+          "links": []
+        },
+        {
+          "name": "Aryan Uttarwar",
+          "role": "Coordinator",
+          "domain": "Public Relations (PR)",
+          "links": []
+        },
+        {
+          "name": "Samarth",
+          "role": "Coordinator",
+          "domain": "Public Relations (PR)",
+          "links": []
+        },
+        {
+          "name": "Nidhish",
+          "role": "Coordinator",
+          "domain": "Public Relations (PR)",
+          "links": []
+        },
+        {
+          "name": "Ajay Ingle",
+          "role": "Coordinator",
+          "domain": "Public Relations (PR)",
+          "links": []
+        }
+      ]
+    },
+    {
+      "domain": "Finance",
+      "leads": [
+        {
+          "name": "Amit",
+          "role": "Finance Lead",
+          "domain": "Finance",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        }
+      ],
+      "coordinators": [
+        {
+          "name": "Raghav Salunke",
+          "role": "Coordinator",
+          "domain": "Finance",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        },
+        {
+          "name": "Pranjal More",
+          "role": "Coordinator",
+          "domain": "Finance",
+          "links": []
+        }
+      ]
+    },
+    {
+      "domain": "Documentation",
+      "leads": [
+        {
+          "name": "Roman",
+          "role": "Documentation Lead",
+          "domain": "Documentation",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        }
+      ],
+      "coordinators": [
+        {
+          "name": "Aditi Bodke",
+          "role": "Coordinator",
+          "domain": "Documentation",
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://linkedin.com/in/"
+            }
+          ]
+        },
+        {
+          "name": "Vishwajit Dagabaj",
+          "role": "Coordinator",
+          "domain": "Documentation",
+          "links": []
+        },
+        {
+          "name": "Tanisha Lal",
+          "role": "Coordinator",
+          "domain": "Documentation",
+          "links": []
+        }
+      ]
+    }
+  ]
+}

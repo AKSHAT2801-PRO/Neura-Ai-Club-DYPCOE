@@ -1,0 +1,55 @@
+{
+  "lead": "Neura is the premier AI student technical community of the Department of Information Technology at Dr. D. Y. Patil College of Engineering, Akurdi, Pune. We bring passionate student engineers together to demystify artificial intelligence, build real-world software, and foster peer-driven technical innovation.",
+  "mission": {
+    "eyebrow": "Our Purpose",
+    "title": "Democratizing AI through practical engineering.",
+    "description": "We believe the most effective way to understand modern artificial intelligence is to build with it. Neura was established to provide DYPCOE students with an open, collaborative sanctuary — where curious beginners and experienced developers alike can master machine learning, experiment with generative systems, and ship meaningful projects."
+  },
+  "vision": {
+    "eyebrow": "Our Vision",
+    "title": "Intelligence, built together.",
+    "quote": "To nurture a community of student innovators at DYPCOE who understand, build, and deploy intelligent systems responsibly — turning academic curiosity into practical skills and impactful engineering."
+  },
+  "pillars": [
+    {
+      "num": "01",
+      "title": "Learn",
+      "subtitle": "Foundations & Emerging Tech",
+      "text": "Demystifying core mathematics, classical algorithms, neural architectures, and modern generative AI tools through structured, interactive workshops."
+    },
+    {
+      "num": "02",
+      "title": "Build",
+      "subtitle": "Project-Driven Engineering",
+      "text": "Collaborating in cross-disciplinary teams to develop real repositories, train models, construct web interfaces, and tackle competitive hackathons."
+    },
+    {
+      "num": "03",
+      "title": "Share",
+      "subtitle": "Community & Open Knowledge",
+      "text": "Sharing takeaways, publishing technical guides, mentoring junior peers, and creating an accessible, welcoming learning environment for all branches."
+    }
+  ],
+  "values": [
+    {
+      "icon": "◈",
+      "title": "Code-First Learning",
+      "text": "Moving quickly beyond theoretical equations into real Python implementations, PyTorch pipelines, and working web applications."
+    },
+    {
+      "icon": "◉",
+      "title": "Peer Mentorship",
+      "text": "Senior leads and coordinators actively mentoring junior members to accelerate their confidence and engineering fundamentals."
+    },
+    {
+      "icon": "⬡",
+      "title": "Cross-Domain Synergy",
+      "text": "Pairing technical developers with UI/UX designers, content writers, and event leads to mirror real-world software teams."
+    },
+    {
+      "icon": "✦",
+      "title": "Responsible Innovation",
+      "text": "Emphasizing ethical AI practices, data accountability, fairness, and thoughtful application in every project we undertake."
+    }
+  ]
+}
