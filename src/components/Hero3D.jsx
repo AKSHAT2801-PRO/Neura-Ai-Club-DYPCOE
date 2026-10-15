@@ -141,7 +141,7 @@ function LogoReveal({ reduced }) {
         }
         data.geometry.attributes.position.needsUpdate = true
         if (planeMat.current) planeMat.current.opacity = 1
-        if (pointsMat.current) pointsMat.current.opacity = 0.4
+        if (pointsMat.current) pointsMat.current.opacity = 0
         settledRef.current = true
       }
     }
