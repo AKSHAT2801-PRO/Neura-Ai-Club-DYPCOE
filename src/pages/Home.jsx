@@ -8,6 +8,7 @@ import { asset } from '../utils.js'
 const reduced =
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const BASE = reduced ? 0 : 3.2
+const INTRO_DURATION = reduced ? 0 : BASE + 2.1
 
 const rise = {
   initial: { opacity: 0, y: 22 },
@@ -133,7 +134,14 @@ const featuresList = [
 export default function Home() {
   const [run] = useState(0)
   const [heroInView, setHeroInView] = useState(true)
+  const [introComplete, setIntroComplete] = useState(INTRO_DURATION === 0)
   const heroRef = useRef(null)
+
+  useEffect(() => {
+    if (introComplete) return undefined
+    const timeout = window.setTimeout(() => setIntroComplete(true), INTRO_DURATION * 1000)
+    return () => window.clearTimeout(timeout)
+  }, [introComplete])
 
   useEffect(() => {
     if (!heroRef.current || typeof IntersectionObserver === 'undefined') return
@@ -194,8 +202,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 1: Focus Domains */}
-      <section className="section container">
+      {introComplete && (
+        <>
+          {/* Section 1: Focus Domains */}
+          <section className="section container">
         <motion.div {...rise} className="section__head">
           <p className="eyebrow">EXPLORATION</p>
           <h2>Where curiosity meets intelligent engineering</h2>
@@ -224,10 +234,10 @@ export default function Home() {
             </motion.article>
           ))}
         </div>
-      </section>
+          </section>
 
-      {/* Section 2: How We Work (Features Strip) */}
-      <section className="section container">
+          {/* Section 2: How We Work (Features Strip) */}
+          <section className="section container">
         <motion.div {...rise} className="section__head">
           <p className="eyebrow">THE NEURA WORKFLOW</p>
           <h2>Built by students, for students</h2>
@@ -255,7 +265,9 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
-      </section>
+          </section>
+        </>
+      )}
     </div>
   )
 }

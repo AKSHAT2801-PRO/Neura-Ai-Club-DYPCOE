@@ -2170,7 +2170,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; letter-spacing
 
 /* Route Lazy Load Fallback */
 .route-fallback {
-  min-height: 70vh;
+  min-height: max(100vh, 720px);
   display: grid;
   place-items: center;
 }
@@ -2185,4 +2185,3 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; letter-spacing
 @keyframes route-spin {
   to { transform: rotate(360deg); }
 }
-
