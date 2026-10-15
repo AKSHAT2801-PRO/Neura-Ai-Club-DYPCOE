@@ -6,6 +6,7 @@ import { asset } from '../utils.js'
 const COUNT = 9000
 const WORLD_W = 7
 const REVEAL_AT = 3.0
+const PARTICLE_FADE_DURATION = 0.6
 
 function makeSprite() {
   const c = document.createElement('canvas')
@@ -128,11 +129,13 @@ function LogoReveal({ reduced }) {
       // Logo artwork fade-in
       const r = Math.min(1, Math.max(0, (t - REVEAL_AT) / 1.2))
       const er = 1 - Math.pow(1 - r, 3)
+      const fade = Math.min(1, Math.max(0, (t - (REVEAL_AT + 1.2)) / PARTICLE_FADE_DURATION))
+      const easedFade = fade * fade * (3 - 2 * fade)
       if (planeMat.current) planeMat.current.opacity = er
-      if (pointsMat.current) pointsMat.current.opacity = 1 - 0.6 * er
+      if (pointsMat.current) pointsMat.current.opacity = (1 - 0.6 * er) * (1 - easedFade)
 
       // Once formation settles, lock buffer to target positions and shut off CPU loops
-      if (allSettled && t > REVEAL_AT + 1.2) {
+      if (allSettled && t > REVEAL_AT + 1.2 + PARTICLE_FADE_DURATION) {
         for (let i = 0; i < COUNT; i++) {
           const i3 = i * 3
           arr[i3] = data.targets[i3]
@@ -150,7 +153,9 @@ function LogoReveal({ reduced }) {
     const g = group.current
     if (g) {
       g.scale.setScalar(Math.min(0.55, (viewport.width * 0.8) / WORLD_W))
-      g.position.y = viewport.height * 0.16 + (settledRef.current ? Math.sin(t * 0.8) * 0.04 : 0)
+      const floatProgress = Math.min(1, Math.max(0, (t - (REVEAL_AT + 1.2)) / PARTICLE_FADE_DURATION))
+      const easedFloat = floatProgress * floatProgress * (3 - 2 * floatProgress)
+      g.position.y = viewport.height * 0.16 + Math.sin(t * 0.8) * 0.04 * easedFloat
       g.rotation.y = Math.sin(t * 0.5) * 0.25 + state.pointer.x * 0.35
       g.rotation.x = -state.pointer.y * 0.2
     }
