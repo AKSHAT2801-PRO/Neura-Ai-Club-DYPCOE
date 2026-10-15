@@ -1,4 +1,4 @@
-import{r as je,g as hx}from"./router-vendor-DqG0biKS.js";import{j as vi}from"./motion-vendor-CUolcvEw.js";/**
+import{r as je,g as hx}from"./router-vendor-XjREV9eY.js";import{j as vi}from"./motion-vendor-mqhSmx0P.js";/**
  * @license
  * Copyright 2010-2024 Three.js Authors
  * SPDX-License-Identifier: MIT

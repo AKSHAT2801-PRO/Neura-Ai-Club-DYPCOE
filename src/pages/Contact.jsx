@@ -127,6 +127,32 @@ export default function Contact() {
                   </div>
                 </div>
               )}
+
+              {site.socials?.instagram && (
+                <div className="contact-channel-card">
+                  <div className="contact-channel-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="5" />
+                      <circle cx="12" cy="12" r="4" />
+                      <circle cx="18" cy="6" r="0.5" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <div className="contact-channel-info">
+                    <span className="channel-badge">FOLLOW US</span>
+                    <h3>Instagram</h3>
+                    <p>Follow Neura AI Club for updates, events, and a glimpse into our community.</p>
+                    <a
+                      href={site.socials.instagram}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="contact-channel-link"
+                    >
+                      <span>@aiclub_dypcoe</span>
+                      <span className="arrow-sym">→</span>
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
           </motion.aside>
 

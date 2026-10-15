@@ -1,4 +1,4 @@
-import{r as v}from"./router-vendor-DqG0biKS.js";var Ms={exports:{}},Ht={};/**
+import{r as v}from"./router-vendor-XjREV9eY.js";var Ms={exports:{}},Ht={};/**
  * @license React
  * react-jsx-runtime.production.min.js
  *
