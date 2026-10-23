@@ -113,12 +113,8 @@
           "domain": "Generative AI (GenAI)",
           "links": [
             {
-              "role": "PORTFOLIO",
-              "url": "https://github.com"
-            },
-            {
-              "role": "LINKEDIN",
-              "url": "https://linkedin.com/in/"
+              "role": "LINKTREE",
+              "url": "https://linktr.ee/2208prathamesh"
             }
           ]
         },
@@ -214,12 +210,8 @@
           "domain": "Web Development",
           "links": [
             {
-              "role": "LinkedIn",
-              "url": "https://github.com"
-            },
-            {
-              "role": "GITHUB",
-              "url": "https://github.com"
+              "role": "PORTFOLIO",
+              "url": "https://my-portfolio-peach-zeta-93.vercel.app"
             }
           ]
         },
@@ -229,8 +221,8 @@
           "domain": "Web Development",
           "links": [
             {
-              "role": "LINKEDIN",
-              "url": "https://linkedin.com/in/"
+              "role": "GITHUB",
+              "url": "https://github.com/sojval"
             }
           ]
         }
@@ -310,7 +302,7 @@
           "links": [
             {
               "role": "LINKTREE",
-              "url": "https://linktr.ee/"
+              "url": "https://linktr.ee/mahajanprth"
             }
           ]
         },
@@ -361,7 +353,7 @@
           "links": [
             {
               "role": "LINKEDIN",
-              "url": "https://linkedin.com/in/"
+              "url": "https://www.linkedin.com/in/shubham-wagh-705902333?utm_source=share_via&utm_content=profile&utm_medium=member_android"
             }
           ]
         },
@@ -475,7 +467,12 @@
           "name": "Nidhish",
           "role": "Coordinator",
           "domain": "Public Relations (PR)",
-          "links": []
+          "links": [
+            {
+              "role": "LINKEDIN",
+              "url": "https://www.linkedin.com/in/nidhish-atkare-b1729b417?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+            }
+          ]
         },
         {
           "name": "Ajay Ingle",
@@ -489,7 +486,7 @@
       "domain": "Finance",
       "leads": [
         {
-          "name": "Amit",
+          "name": " Varad",
           "role": "Finance Lead",
           "domain": "Finance",
           "links": [
