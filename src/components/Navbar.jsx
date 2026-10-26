@@ -15,6 +15,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { pathname } = useLocation()
+  const lightPage = pathname === '/about' || pathname === '/events'
 
   useEffect(() => setOpen(false), [pathname])
   useEffect(() => {
@@ -35,7 +36,7 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header className={`nav ${scrolled || open ? 'nav--solid' : ''}`}>
+    <header className={`nav ${scrolled || open ? 'nav--solid' : ''} ${lightPage ? 'nav--light-theme' : ''}`}>
       <div className="nav__inner">
         <Link to="/" className="nav__brand" aria-label="Neura AI Club home">
           <Logo size={34} />

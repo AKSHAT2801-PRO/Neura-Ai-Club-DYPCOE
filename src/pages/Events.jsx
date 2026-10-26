@@ -34,7 +34,7 @@ function EventCard({ event, status }) {
 
 export default function Events() {
   return (
-    <>
+    <div className="events-page">
       <section className="page-hero">
         <motion.div {...rise()} className="container page-hero__inner">
           <p className="eyebrow">Events</p>
@@ -74,6 +74,6 @@ export default function Events() {
           )
         })}
       </div>
-    </>
+    </div>
   )
 }

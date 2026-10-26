@@ -1,29 +1,28 @@
 {
   "faculty": [
     {
-      "name": "Faculty Coordinator 1",
+      "name": "Dr. Dhanaraj Jadhav",
       "role": "Faculty Coordinator",
       "dept": "Department of Information Technology",
       "links": [
-        {
-          "role": "PORTFOLIO",
-          "url": "https://www.dypcoe.edu.in"
-        }
       ]
     },
     {
-      "name": "Faculty Coordinator 2",
+      "name": "Mrs. Megha Mehar",
       "role": "Faculty Coordinator",
       "dept": "Department of Information Technology",
       "links": [
-        {
-          "role": "LINKEDIN",
-          "url": "https://linkedin.com/in/"
-        }
+        
       ]
     },
     {
-      "name": "Faculty Coordinator 3",
+      "name": "Mrs. Sonali Nagmode",
+      "role": "Faculty Coordinator",
+      "dept": "Department of Information Technology",
+      "links": []
+    },
+    {
+      "name": "Mr. Omkar Kumbhakarn",
       "role": "Faculty Coordinator",
       "dept": "Department of Information Technology",
       "links": []
@@ -453,12 +452,6 @@
         },
         {
           "name": "Aryan Uttarwar",
-          "role": "Coordinator",
-          "domain": "Public Relations (PR)",
-          "links": []
-        },
-        {
-          "name": "Samarth",
           "role": "Coordinator",
           "domain": "Public Relations (PR)",
           "links": []
