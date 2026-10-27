@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
+import LogoRecording from './pages/LogoRecording.jsx'
 
 // Code-split routes for fast initial page load and lightweight bundle delivery
 const Home = lazy(() => import('./pages/Home.jsx'))
@@ -29,6 +30,10 @@ function RouteFallback() {
 }
 
 export default function App() {
+  const { pathname } = useLocation()
+
+  if (pathname === '/logo-recording') return <LogoRecording />
+
   return (
     <>
       <ScrollToTop />

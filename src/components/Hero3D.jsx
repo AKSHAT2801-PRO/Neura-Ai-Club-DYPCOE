@@ -82,7 +82,7 @@ function buildData(img) {
   return { geometry, targets, starts, delays, swirl }
 }
 
-function LogoReveal({ reduced }) {
+function LogoReveal({ reduced, speed }) {
   const group = useRef()
   const pointsMat = useRef()
   const planeMat = useRef()
@@ -106,7 +106,7 @@ function LogoReveal({ reduced }) {
   }, [sprite, data])
 
   useFrame((state) => {
-    const t = state.clock.elapsedTime + (reduced ? 10 : 0)
+    const t = state.clock.elapsedTime * speed + (reduced ? 10 : 0)
 
     // CPU Swarm Animation: Only executes while particles are assembling
     if (!settledRef.current) {
@@ -183,7 +183,7 @@ function LogoReveal({ reduced }) {
   )
 }
 
-function Backdrop() {
+function Backdrop({ speed }) {
   const wire = useRef()
   const stars = useRef()
   const starGeo = useMemo(() => {
@@ -214,11 +214,11 @@ function Backdrop() {
 
   useFrame((state, dt) => {
     if (wire.current) {
-      wire.current.rotation.y += dt * 0.08
-      wire.current.rotation.x += dt * 0.04
+      wire.current.rotation.y += dt * speed * 0.08
+      wire.current.rotation.x += dt * speed * 0.04
     }
     if (stars.current) {
-      stars.current.rotation.y += dt * 0.02
+      stars.current.rotation.y += dt * speed * 0.02
     }
   })
 
@@ -243,7 +243,7 @@ function Backdrop() {
   )
 }
 
-export default function Hero3D({ reduced = false, inView = true }) {
+export default function Hero3D({ reduced = false, inView = true, speed = 1 }) {
   return (
     <Canvas
       camera={{ position: [0, 0, 9], fov: 50 }}
@@ -251,9 +251,9 @@ export default function Hero3D({ reduced = false, inView = true }) {
       frameloop={inView ? 'always' : 'never'}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
     >
-      <Backdrop />
+      <Backdrop speed={speed} />
       <Suspense fallback={null}>
-        <LogoReveal reduced={reduced} />
+        <LogoReveal reduced={reduced} speed={speed} />
       </Suspense>
     </Canvas>
   )
