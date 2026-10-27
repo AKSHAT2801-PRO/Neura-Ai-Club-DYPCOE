@@ -34,14 +34,6 @@
       "role": "President",
       "domain": "Core Leadership",
       "links": [
-        {
-          "role": "LINKEDIN",
-          "url": "https://linkedin.com/in/"
-        },
-        {
-          "role": "PORTFOLIO",
-          "url": "https://github.com"
-        }
       ]
     },
     {
@@ -49,10 +41,6 @@
       "role": "Vice President",
       "domain": "Core Leadership",
       "links": [
-        {
-          "role": "LINKTREE",
-          "url": "https://linktr.ee/"
-        }
       ]
     }
   ],
@@ -319,7 +307,7 @@
       ],
       "coordinators": [
         {
-          "name": "Tirthkak Patil",
+          "name": "Tirthak Patil",
           "role": "Coordinator",
           "domain": "Media",
           "links": [
@@ -331,6 +319,28 @@
         },
         {
           "name": "Ganesh",
+          "role": "Coordinator",
+          "domain": "Media",
+          "links": [
+            {
+              "role": "PORTFOLIO",
+              "url": "https://github.com"
+            }
+          ]
+        },
+        {
+          "name": "Snehal",
+          "role": "Coordinator",
+          "domain": "Media",
+          "links": [
+            {
+              "role": "PORTFOLIO",
+              "url": "https://github.com"
+            }
+          ]
+        },
+        {
+          "name": "Prajyot",
           "role": "Coordinator",
           "domain": "Media",
           "links": [
@@ -427,7 +437,7 @@
           "links": [
             {
               "role": "LINKEDIN",
-              "url": "https://linkedin.com/in/"
+              "url": "https://www.linkedin.com/in/shrishaily-raykwade-600665330?utm_source=share_via&utm_content=profile&utm_medium=member_android"
             }
           ]
         }
